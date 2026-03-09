@@ -38,4 +38,11 @@ browse_button.pack(pady=10)
 text_area = scrolledtext.ScrolledText(root, width=80, height=30)
 text_area.pack()
 
+def copy_to_clipboard():
+    root.clipboard_clear()
+    root.clipboard_append(text_area.get(1.0, tk.END))
+
+copy_btn = tk.Button(text_area, text="📋", command=copy_to_clipboard)
+copy_btn.place(relx=1.0, rely=0.0, anchor="ne", x=-10, y=10)
+
 root.mainloop()
